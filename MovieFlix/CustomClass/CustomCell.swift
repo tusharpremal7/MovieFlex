@@ -12,4 +12,5 @@ class MovieCollectionCell:UICollectionViewCell{
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var lblOverview:UILabel!
     @IBOutlet weak var imgPoster:UIImageView!
+    @IBOutlet weak var btnDelete:UIButton!
 }

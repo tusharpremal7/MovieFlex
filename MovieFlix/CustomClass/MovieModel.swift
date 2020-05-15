@@ -18,17 +18,9 @@ struct Response: Codable
         var release_date:String?
         var poster_path:String?
         var popularity:Double?
+        var id:Int?
     }
     
     var results:[results]
 }
 
-class MovieModel{
-
-    var title:String?
-    var overview:String?
-    var release_date:String?
-    var poster_path:String?
-    var popularity:Double?
-    
-}

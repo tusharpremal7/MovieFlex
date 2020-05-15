@@ -41,14 +41,8 @@ class WSManager {
                         postCompleted(false, [MovieViewModel]())
                     }else{
                         var arrModel = [MovieViewModel]()
-                        for dict in response!.results{
-                            let model = MovieModel.init()
-                            model.title = dict.title
-                            model.poster_path = dict.poster_path
-                            model.overview = dict.overview
-                            model.release_date = dict.release_date
-                            model.popularity = dict.popularity
-                            arrModel.append(MovieViewModel.init(model))
+                        for result in response!.results{
+                            arrModel.append(MovieViewModel.init(result))
                         }
                         postCompleted(true,arrModel)
                     }

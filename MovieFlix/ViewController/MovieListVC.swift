@@ -49,6 +49,26 @@ class MovieListVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func btnDeleteMovieAction(_ sender:UIButton){
+        self.collectionMovie.performBatchUpdates({
+            guard let cell = sender.superview!.superview as? MovieCollectionCell else {
+                return
+            }
+            let indexPath = collectionMovie.indexPath(for: cell)!
+            if isSearchEnabled{
+                self.arrMovies.remove(at: self.arrMovies.firstIndex(where: { (model) -> Bool in
+                    return model.id == self.arrSearchMovies[sender.tag].id
+                })!)
+                self.arrSearchMovies.remove(at: indexPath.row)
+            }else{
+                self.arrMovies.remove(at: indexPath.row)
+            }
+            self.collectionMovie.deleteItems(at: [indexPath])
+        }) { (success) in
+            
+        }
+    }
 }
 
 extension MovieListVC:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate{

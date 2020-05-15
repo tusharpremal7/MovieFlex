@@ -12,9 +12,9 @@ import AlamofireImage
 
 class MovieViewModel{
     
-    private let movieModel:MovieModel!
+    private let movieModel:Response.results!
     
-    init(_ model: MovieModel){
+    init(_ model: Response.results){
         self.movieModel = model
     }
     
@@ -32,6 +32,10 @@ class MovieViewModel{
     
     public var popularity: String {
         return String.init(format: "%.1f%", movieModel.popularity ?? 0)
+    }
+    
+    public var id: Int {
+        return movieModel.id ?? 0
     }
     
     public var posterURL: URL? {
